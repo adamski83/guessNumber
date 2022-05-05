@@ -22,34 +22,20 @@ document.querySelector('.check').addEventListener('click', function () {
         if (score > highscore) {
             highscore = score;
             document.querySelector('.highscore').textContent = highscore;
-
-
-        } else if (guess !== secretNumber) {
-            if (score > 1) {
-                document.querySelector('.message').textContent = guess > secretNumber ? 'To high 📈' : 'To low 📉 ';
-                score--;
-                document.querySelector('.score').textContent = score;
-            } else {
-                document.querySelector('.message').textContent = 'You loose your all points';
-                document.querySelector('.score').textContent = 0;
-            };
         };
-
-    } else if (guess > secretNumber) {
+        //when guess is wrond
+    } else if (guess !== secretNumber) {
         if (score > 1) {
+            message.textContent = guess > secretNumber ? 'To high 📈 ' : 'To low 📉 ';
             score--;
-            message.textContent = 'To high 📈 '
             document.querySelector('.score').textContent = score;
         } else {
-            message.textContent = 'You loose your all points'
+            message.textContent = 'You loose your all points';
+            document.querySelector('.score').textContent = 0;
         }
-    } else if (guess < secretNumber) {
-        score--;
-        message.textContent = 'To low 📉 '
-        document.querySelector('.score').textContent = score;
-        const secretNumber = secretNumber;
     }
-})
+
+});
 
 document.querySelector('.again').addEventListener('click', () => {
     score = 20;
