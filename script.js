@@ -23,10 +23,10 @@ document.querySelector('.check').addEventListener('click', function () {
             highscore = score;
             document.querySelector('.highscore').textContent = highscore;
         };
-        //when guess is wrond
+        //when guess is wrong
     } else if (guess !== secretNumber) {
         if (score > 1) {
-            message.textContent = guess > secretNumber ? 'To high 📈 ' : 'To low 📉 ';
+            message.textContent = guess > secretNumber ? 'Too high 📈 ' : 'Too low 📉 ';
             score--;
             document.querySelector('.score').textContent = score;
         } else {
